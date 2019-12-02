@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import * as style from "./style.scssas";
+import * as style from "./style.scss";
 
 interface Props {
   children: JSX.Element;
@@ -8,6 +8,9 @@ interface Props {
 
 const Container = (props: Props): JSX.Element => (
   <div className={style.wrapper}>
+    <div className={style.toolbar}>
+
+    </div>
     <div className={style.sidebar}>
 
     </div>
