@@ -12,12 +12,12 @@ export const Home = (
     isFetching,
     errorMessage,
     feeds,
-  },
+  }: any,
 ) => {
 
   // On component mount feed are read
   useEffect(() => {
-    listFeeds();
+    listFeeds("https://www.webnews.it/feed/");
     return () => {
       listFeedsReset();
     };
@@ -38,7 +38,7 @@ export const mapStateToProps = (state: any) => {
     // Properties related to feeds list
     isFetching: state.listFeeds.isFetching,
     errorMessage: state.listFeeds.errorMessage,
-    feeds: state.listFeeds.data.results,
+    feeds: state.listFeeds.data.items || [],
   };
 };
 

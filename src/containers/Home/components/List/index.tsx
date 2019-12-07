@@ -5,10 +5,14 @@ const Home = (
     isFetching,
     errorMessage,
     feeds,
-  },
+  }: any,
 ): JSX.Element => (
   <>
-      aaa
+    {feeds.map((feed: any) => (
+      <>
+        {feed.title}
+      </>
+    ))}
   </>
 );
 

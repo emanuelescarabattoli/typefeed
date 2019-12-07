@@ -7,22 +7,22 @@ import {
 
 // A generic reducer used to list a resource
 const resourceList = (resource: string) => (
-  state: any = { isFetching: false, data: { results: [] }, errorMessage: "" },
+  state: any = { isFetching: false, data: [], errorMessage: "" },
   action: any,
 ): any => {
   switch (action.type) {
   case `${RESOURCE_LIST_REQUEST_}${resource}`:
-    return { ...state, isFetching: true, data: { results: [] }, errorMessage: "" };
+    return { ...state, isFetching: true, data: [], errorMessage: "" };
   case `${RESOURCE_LIST_SUCCESS_}${resource}`:
     return { ...state, isFetching: false, data: action.data, errorMessage: "" };
   case `${RESOURCE_LIST_ERROR_}${resource}`:
     return {
       ...state,
       isFetching: false,
-      data: { results: [] }, errorMessage: action.errorMessage,
+      data: [], errorMessage: action.errorMessage,
     };
   case `${RESOURCE_LIST_RESET_}${resource}`:
-    return { ...state, isFetching: false, data: { results: [] }, errorMessage: "" };
+    return { ...state, isFetching: false, data: [], errorMessage: "" };
   default:
     return state;
   }

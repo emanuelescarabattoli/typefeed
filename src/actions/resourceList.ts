@@ -14,7 +14,7 @@ export const resourceListRequest = (resource: string) => (): any => {
 };
 
 // Action creator for a successful list resource request
-export const resourceListSuccess = (resource: string) => (data: Array<any>): any => {
+export const resourceListSuccess = (resource: string) => (data: any): any => {
   return {
     type: `${RESOURCE_LIST_SUCCESS_}${resource}`,
     data,
@@ -39,16 +39,16 @@ export const resourceListReset = (resource: string) => (): any => {
 // Here we dispatch the request action and then, after it is resolved, the success action
 // or, if fails, the error action
 export const resourceList = (resource: string) => (url: string) => {
-  return (dispatch: Function): Promise<Array<any>> => {
+  return (dispatch: Function): Promise<any> => {
     dispatch(resourceListRequest(resource)());
     return parser.parseURL(url)
       .then(result => {
-        dispatch(resourceListSuccess(resource)(result.data));
-        return result.data;
+        dispatch(resourceListSuccess(resource)(result));
+        return result;
       })
       .catch(error => {
         dispatch(resourceListError(resource)(error.message));
-        return {};
+        return error;
       });
   };
 };

@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu } = require("electron");
 
-Menu.setApplicationMenu(null);
+// Menu.setApplicationMenu(null);
 
 let win;
 
@@ -13,6 +13,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       devTools: true,
+      webSecurity: false,
     },
     fullscreen: false,
     frame: true,

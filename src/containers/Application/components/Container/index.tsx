@@ -2,9 +2,10 @@ import * as React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import * as style from "./style.scss";
+import { RouteComponentProps } from "react-router";
 
-interface Props {
-  children: JSX.Element;
+interface Props extends RouteComponentProps {
+  children: any;
 }
 
 const Container = (props: Props): JSX.Element => (
