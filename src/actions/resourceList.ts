@@ -7,14 +7,14 @@ export const RESOURCE_LIST_ERROR_ = "RESOURCE_LIST_ERROR_";
 export const RESOURCE_LIST_RESET_ = "RESOURCE_LIST_RESET_";
 
 // Action creator for start fetching a resource
-export const resourceListRequest = (resource: string) => (): object => {
+export const resourceListRequest = (resource: string) => (): any => {
   return {
     type: `${RESOURCE_LIST_REQUEST_}${resource}`,
   };
 };
 
 // Action creator for a successful list resource request
-export const resourceListSuccess = (resource: string) => (data: Array<object>): object => {
+export const resourceListSuccess = (resource: string) => (data: Array<any>): any => {
   return {
     type: `${RESOURCE_LIST_SUCCESS_}${resource}`,
     data,
@@ -22,7 +22,7 @@ export const resourceListSuccess = (resource: string) => (data: Array<object>): 
 };
 
 // Action creator for a successful list resource request
-export const resourceListError = (resource: string) => (errorMessage: string): object => {
+export const resourceListError = (resource: string) => (errorMessage: string): any => {
   return {
     type: `${RESOURCE_LIST_ERROR_}${resource}`,
     errorMessage,
@@ -30,7 +30,7 @@ export const resourceListError = (resource: string) => (errorMessage: string): o
 };
 
 // Action creator for resetting the data
-export const resourceListReset = (resource: string) => (): object => {
+export const resourceListReset = (resource: string) => (): any => {
   return {
     type: `${RESOURCE_LIST_RESET_}${resource}`,
   };
@@ -38,11 +38,8 @@ export const resourceListReset = (resource: string) => (): object => {
 
 // Here we dispatch the request action and then, after it is resolved, the success action
 // or, if fails, the error action
-export const resourceList = (
-  resource: string,
-  url: string,
-) => () => {
-  return (dispatch: Function): Promise<Array<object>> => {
+export const resourceList = (resource: string) => (url: string) => {
+  return (dispatch: Function): Promise<Array<any>> => {
     dispatch(resourceListRequest(resource)());
     return parser.parseURL(url)
       .then(result => {

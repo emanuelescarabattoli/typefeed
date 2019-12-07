@@ -10,7 +10,7 @@ const history = createBrowserHistory();
 
 // Here we create the store, createRootReducer creates the root reducer
 // used by redux to manage the state of the application.
-const configureStore = (preloadedState: any) => (
+const configureStore = (preloadedState: any): any => (
   createStore(
     createRootReducer(history),
     preloadedState,
