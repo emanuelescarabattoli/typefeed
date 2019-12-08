@@ -1,0 +1,42 @@
+.items{
+  padding: 2rem 2rem 2rem calc(50px + 2rem);
+  color: #aaaaaa;
+}
+
+.item + .item {
+  margin-top: 2rem;
+}
+
+.itemTitle{
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.itemContent{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-column-gap: 1rem;
+}
+
+.itemContentLeft{
+  border: solid 1px #111111;
+  border-radius: 5px;
+}
+
+.itemContentRight{
+
+}
+
+.itemImage{
+
+}
+
+.itemDescription{
+
+}
+
+.itemLink{
+
+
+}

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, Menu, ipcMain, shell } = require("electron");
 
 // Menu.setApplicationMenu(null);
 
@@ -15,9 +15,12 @@ function createWindow() {
       devTools: true,
       webSecurity: false,
     },
+    icon: __dirname + "/src/assets/img/favicon-32.png",
     fullscreen: false,
     frame: true,
   });
+
+  win.maximize();
 
   win.loadURL("http://localhost:8080/");
 
@@ -25,6 +28,8 @@ function createWindow() {
     win = null;
   });
 }
+
+console.log(__dirname);
 
 app.on("ready", createWindow);
 
@@ -38,4 +43,9 @@ app.on("activate", () => {
   if (win === null) {
     createWindow();
   }
+});
+
+ipcMain.on("open-link", (event, arg) => {
+  console.log("foo");
+  shell.openExternal(arg);
 });

@@ -1,9 +1,9 @@
-const path = require("path")
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlWebPackPlugin = new HtmlWebPackPlugin({
   template: "./src/public/index.html",
-  filename: "./index.html"
+  filename: "./index.html",
 });
 
 module.exports = {
@@ -15,51 +15,52 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  target: "electron-renderer",
   module: {
     rules: [
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: {
-          loader: "ts-loader"
-        }
+          loader: "ts-loader",
+        },
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: "[name]_[local]_[hash:base64]"
-              }
-            }
+                localIdentName: "[name]_[local]_[hash:base64]",
+              },
+            },
           },
           {
             loader: "sass-loader",
             options: {
-              sourceMap: true
-            }
-          }
-        ]
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
             loader: "file-loader",
-            options: {}
-          }
-        ]
-      }
-    ]
+            options: {},
+          },
+        ],
+      },
+    ],
   },
   plugins: [htmlWebPackPlugin],
   devtool: "cheap-module-source-map",
   devServer: {
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 };
