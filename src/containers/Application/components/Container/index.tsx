@@ -13,15 +13,10 @@ const Container = (props: Props): JSX.Element => (
     <div className={style.toolbar}>
       <ul>
         <li>
-          <Link to="Home"><i className="fas fa-th-list"></i></Link>
+          <Link to="/"><i className="fas fa-th-list" /></Link>
         </li>
         <li>
-          <Link to="Home"><i className="fas fa-plus"></i></Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to="Home"><i className="fas fa-cog"></i></Link>
+          <Link to="/add-source"><i className="fas fa-plus" /></Link>
         </li>
       </ul>
     </div>

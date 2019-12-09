@@ -1,4 +1,5 @@
 export const wrapper: string;
+export const sidebar: string;
 export const items: string;
 export const item: string;
 export const itemTitle: string;
@@ -6,5 +7,6 @@ export const itemContent: string;
 export const itemContentLeft: string;
 export const itemContentRight: string;
 export const itemImage: string;
-export const itemDescription: string;
+export const itemSubtitle: string;
 export const itemLink: string;
+export const sources: string;

@@ -5,7 +5,6 @@ import {
   RESOURCE_LIST_RESET_,
 } from "../actions/resourceList";
 
-// A generic reducer used to list a resource
 const resourceList = (resource: string) => (
   state: any = { isFetching: false, data: [], errorMessage: "" },
   action: any,

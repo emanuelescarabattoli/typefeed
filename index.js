@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu, ipcMain, shell } = require("electron");
 
-// Menu.setApplicationMenu(null);
+Menu.setApplicationMenu(null);
 
 let win;
 
@@ -29,8 +29,6 @@ function createWindow() {
   });
 }
 
-console.log(__dirname);
-
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
@@ -46,6 +44,5 @@ app.on("activate", () => {
 });
 
 ipcMain.on("open-link", (event, arg) => {
-  console.log("foo");
   shell.openExternal(arg);
 });

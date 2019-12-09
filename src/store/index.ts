@@ -5,11 +5,8 @@ import thunkMiddleware from "redux-thunk";
 
 import createRootReducer from "../reducers";
 
-// Creating an history to allow user browse through the pages
 const history = createBrowserHistory();
 
-// Here we create the store, createRootReducer creates the root reducer
-// used by redux to manage the state of the application.
 const configureStore = (preloadedState: any): any => (
   createStore(
     createRootReducer(history),
