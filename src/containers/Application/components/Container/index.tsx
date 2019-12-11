@@ -4,8 +4,16 @@ import { Link, withRouter } from "react-router-dom";
 import * as style from "./style.scss";
 import { RouteComponentProps } from "react-router";
 
+export type ReactNode =
+  React.ReactChild |
+  React.ReactFragment |
+  React.ReactPortal |
+  boolean |
+  null |
+  undefined;
+
 interface Props extends RouteComponentProps {
-  children: any;
+  children: ReactNode;
 }
 
 const Container = (props: Props): JSX.Element => (

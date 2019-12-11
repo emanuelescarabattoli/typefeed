@@ -3,21 +3,38 @@ import { connect } from "react-redux";
 
 import Form from "./components/Form/index";
 
-export const AddSource = (
-  {
-    formValues,
-  }: any,
-) => {
+export interface Props {
+  formValues: FormValues;
+}
 
-  const onClickAddSource = () => {
+export interface FormValues {
+  title?: string;
+  url?: string;
+}
+
+export interface State {
+  form: From;
+}
+
+export interface From {
+  addSource: AddSourceForm;
+}
+
+export interface AddSourceForm {
+  values: FormValues;
+}
+
+export const AddSource = (props: Props): JSX.Element => {
+
+  const onClickAddSource = (): void => {
     const sourcesData = localStorage.getItem("sources");
     if (sourcesData) {
       const parsedSourcesData = JSON.parse(sourcesData);
-      parsedSourcesData.push({ title: formValues.title, url: formValues.url });
+      parsedSourcesData.push({ title: props.formValues.title, url: props.formValues.url });
       localStorage.setItem("sources", JSON.stringify(parsedSourcesData));
     } else {
       localStorage.setItem("sources", JSON.stringify(
-        [{ title: formValues.title, url: formValues.url }],
+        [{ title: props.formValues.title, url: props.formValues.url }],
       ));
     }
   };
@@ -29,7 +46,7 @@ export const AddSource = (
   );
 };
 
-export const mapStateToProps = (state: any) => {
+export const mapStateToProps = (state: State): Props => {
   return {
     formValues:
       state.form.addSource &&
@@ -37,7 +54,7 @@ export const mapStateToProps = (state: any) => {
   };
 };
 
-export const mapDispatchToProps = (): any => {
+export const mapDispatchToProps = (): object => {
   return {};
 };
 

@@ -3,11 +3,13 @@ import { reduxForm, Field } from "redux-form";
 
 import * as style from "./style.scss";
 
-interface Props {
-  onClickAddSource: any;
+export type OnClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+
+export interface Props {
+  onClickAddSource: OnClickHandler;
 }
 
-const Form = (props: Props): JSX.Element => (
+export const Form = (props: Props): JSX.Element => (
   <div className={style.wrapper}>
     <Field component="input" name="title" />
     <Field component="input" name="url" />
